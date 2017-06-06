@@ -1,0 +1,9 @@
+if (!hasProperty('mainClass')) {
+    ext.mainClass = 'org.openjml.samples.InferenceSystem'
+}
+
+dependencies {
+    compile project(':core')
+    compile project(':fuzzy')
+    compile project(':neuro')
+}
