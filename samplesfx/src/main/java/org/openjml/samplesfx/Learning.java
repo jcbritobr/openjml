@@ -21,11 +21,12 @@ import org.openjml.neuro.networks.ActivationNetwork;
 public class Learning extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Learning Sample");
+        primaryStage.setTitle("Backpropagation Learning Sample");
 
         HBox box1 = new HBox(10);
         box1.setPadding(new Insets(10, 10, 10, 10));
         Button button = new Button("Learn");
+        button.setPrefSize(100, 20);
         box1.getChildren().add(button);
 
 
@@ -36,6 +37,7 @@ public class Learning extends Application {
         yAxis.setLabel("Mean Error");
 
         AreaChart areaChart = new AreaChart<>(xAxis, yAxis);
+        areaChart.setAnimated(false);
 
         XYChart.Series sError = new XYChart.Series();
         sError.setName("Error");
@@ -57,7 +59,7 @@ public class Learning extends Application {
                 1
         );
 
-        BackPropagationLearning teacher = new BackPropagationLearning(network);
+        final BackPropagationLearning teacher = new BackPropagationLearning(network);
         teacher.setLearningRate(0.1f);
         teacher.setMomentum(0.0f);
 
