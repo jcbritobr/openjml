@@ -9,7 +9,7 @@ import java.io.Serializable;
  * DistanceLayer.
  * Created by jgardona on 31/05/17.
  */
-public class DistanceLayer extends Layer implements Serializable {
+public class DistanceLayer extends Layer {
 
     public DistanceLayer(int inputCount, int neuronCount) {
         super(neuronCount, inputCount);

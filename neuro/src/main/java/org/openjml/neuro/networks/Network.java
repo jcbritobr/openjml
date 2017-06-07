@@ -21,11 +21,13 @@ public abstract class Network implements Serializable {
     }
 
     public static void save(String fileName, Network network) throws IOException {
-        FileOutputStream fos = new FileOutputStream(fileName);
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-
-        oos.writeObject(network);
-        oos.close();
+        
+        try (FileOutputStream fos = new FileOutputStream(fileName);
+                ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+            oos.writeObject(network);
+        } catch (IOException e) {
+            throw new RuntimeException("Cant serialize network to file.");
+        }
     }
 
     public static Network load(String fileName) {

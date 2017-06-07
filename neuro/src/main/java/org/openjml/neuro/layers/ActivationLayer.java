@@ -10,7 +10,7 @@ import java.io.Serializable;
  * ActivationLayer
  * Created by jgardona on 31/05/17.
  */
-public class ActivationLayer extends Layer implements Serializable {
+public class ActivationLayer extends Layer {
 
     public ActivationLayer(int neuronCount, int inputCount, ActivationFunction function) {
         super(neuronCount, inputCount);

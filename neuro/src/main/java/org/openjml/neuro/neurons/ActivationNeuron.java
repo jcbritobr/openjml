@@ -8,7 +8,7 @@ import java.io.Serializable;
  * ActivationNeuron represents a ann activation neuron.
  * Created by jgardona on 31/05/17.
  */
-public class ActivationNeuron extends Neuron implements Serializable{
+public class ActivationNeuron extends Neuron {
     protected float threshold = 0.0f;
     protected ActivationFunction function;
 

@@ -9,7 +9,7 @@ import java.io.Serializable;
  * DistanceNetwork
  * Created by jgardona on 31/05/17.
  */
-public class DistanceNetwork extends Network implements Serializable {
+public class DistanceNetwork extends Network {
 
     protected DistanceNetwork(int inputCount, int neuronCount) {
         super(inputCount, 1);

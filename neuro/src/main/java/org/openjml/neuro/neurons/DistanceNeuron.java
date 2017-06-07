@@ -6,7 +6,7 @@ import java.io.Serializable;
  * DistanceNeuron represents a ann distance neuron.
  * Created by jgardona on 31/05/17.
  */
-public class DistanceNeuron extends Neuron implements Serializable{
+public class DistanceNeuron extends Neuron {
 
 
     public DistanceNeuron(int inputs) {

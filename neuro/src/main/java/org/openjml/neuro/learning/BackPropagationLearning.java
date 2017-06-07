@@ -12,12 +12,12 @@ import org.openjml.neuro.neurons.Neuron;
  */
 public class BackPropagationLearning implements SupervisedLearning {
 
-    private ActivationNetwork network;
+    private final ActivationNetwork network;
     private float learningRate = 0.1f;
     private float momentum = 0.0f;
-    private float[][] neuronErrors;
-    private float[][][] weightUpdates;
-    private float[][] thresholdUpdates;
+    private final float[][] neuronErrors;
+    private final float[][][] weightUpdates;
+    private final float[][] thresholdUpdates;
 
     private float calcError(float[] output) {
         Layer layer, nextLayer;

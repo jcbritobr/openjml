@@ -4,13 +4,12 @@ import org.openjml.neuro.functions.ActivationFunction;
 import org.openjml.neuro.layers.ActivationLayer;
 import org.openjml.neuro.layers.Layer;
 
-import java.io.Serializable;
 
 /**
  * ActivationNetwork
  * Created by jgardona on 31/05/17.
  */
-public class ActivationNetwork extends Network implements Serializable {
+public class ActivationNetwork extends Network {
 
     public ActivationNetwork(ActivationFunction function, int inputCount, int ... neuronCount) {
         super(inputCount, neuronCount.length);
