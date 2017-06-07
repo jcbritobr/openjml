@@ -17,7 +17,6 @@ public class Clause {
     }
 
     public Clause(LinguisticVariable variable, Set label) {
-        variable.getLabel(label.getName());
         this.label = label;
         this.variable = variable;
     }

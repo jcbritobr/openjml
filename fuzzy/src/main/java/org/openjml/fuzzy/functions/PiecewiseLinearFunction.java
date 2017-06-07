@@ -20,7 +20,7 @@ public class PiecewiseLinearFunction implements Function {
     }
 
     public PiecewiseLinearFunction(Point[] points) {
-        this.points = points;
+        this.points = points.clone();
 
         for (int i = 0; i < points.length; i++) {
             if ((points[i].getY() < 0) || (points[i].getY() > 1)) {

@@ -26,6 +26,6 @@ public class Rulebase {
     }
 
     public Rule[] rules() {
-        return (Rule[]) rules.values().toArray();
+        return rules.values().toArray(new Rule[rules.values().size()]);
     }
 }

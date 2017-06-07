@@ -30,4 +30,5 @@ jfx {
 dependencies {
     compile project(':core')
     compile project(':fuzzy')
+    compile project(':neuro')
 }

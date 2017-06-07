@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by jgardona on 31/05/17.
  */
-public class SigmoidFunction implements ActivationFunction, Serializable {
+public class SigmoidFunction implements ActivationFunction, Serializable, Cloneable {
 
     private float alpha = 2.0f;
 
@@ -17,6 +17,10 @@ public class SigmoidFunction implements ActivationFunction, Serializable {
 
     public float getAlpha() {
         return alpha;
+    }
+
+    public void setAlpha(float alpha) {
+        this.alpha = alpha;
     }
 
     @Override
@@ -36,7 +40,9 @@ public class SigmoidFunction implements ActivationFunction, Serializable {
     }
 
     @Override
-    public SigmoidFunction clone() {
-        return new SigmoidFunction(alpha);
+    public SigmoidFunction clone() throws CloneNotSupportedException {
+        SigmoidFunction function = (SigmoidFunction) super.clone();
+        function.setAlpha(alpha);
+        return function;
     }
 }

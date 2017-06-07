@@ -6,7 +6,7 @@ import java.io.Serializable;
  * ThresholdFunction
  * Created by jgardona on 31/05/17.
  */
-public class ThresholdFunction implements ActivationFunction, Serializable {
+public class ThresholdFunction implements ActivationFunction, Serializable, Cloneable {
     @Override
     public float function(float scalar) {
         return scalar >= 0 ? 1 : 0;
@@ -23,7 +23,7 @@ public class ThresholdFunction implements ActivationFunction, Serializable {
     }
 
     @Override
-    public ThresholdFunction clone() {
-        return new ThresholdFunction();
+    public ThresholdFunction clone() throws CloneNotSupportedException {
+        return (ThresholdFunction) super.clone();
     }
 }

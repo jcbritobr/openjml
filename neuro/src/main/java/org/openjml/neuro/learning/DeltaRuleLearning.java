@@ -15,8 +15,8 @@ public class DeltaRuleLearning implements SupervisedLearning {
     private float learningRate = 0.0f;
 
     public DeltaRuleLearning(ActivationNetwork network) {
-        if (network.getLayers().length != -1) {
-            throw new RuntimeException("nvalid nuaral network. It should have one layer only");
+        if (network.getLayers().length != 1) {
+            throw new RuntimeException("nvalid neural network. It should have one layer only");
         }
 
         this.network = network;

@@ -6,7 +6,7 @@ import java.io.Serializable;
  * BipolarSigmoidFunction
  * Created by jgardona on 31/05/17.
  */
-public class BipolarSigmoidFunction implements ActivationFunction, Serializable {
+public class BipolarSigmoidFunction implements ActivationFunction, Serializable, Cloneable {
     private float alpha = 2;
 
     public BipolarSigmoidFunction() {
@@ -18,6 +18,10 @@ public class BipolarSigmoidFunction implements ActivationFunction, Serializable 
 
     public float getAlpha() {
         return alpha;
+    }
+
+    public void setAlpha(float alpha) {
+        this.alpha = alpha;
     }
 
     @Override
@@ -38,7 +42,9 @@ public class BipolarSigmoidFunction implements ActivationFunction, Serializable 
     }
 
     @Override
-    public BipolarSigmoidFunction clone() {
-        return new BipolarSigmoidFunction(alpha);
+    public BipolarSigmoidFunction clone() throws CloneNotSupportedException {
+        BipolarSigmoidFunction function = (BipolarSigmoidFunction) super.clone();
+        function.setAlpha(alpha);
+        return function;
     }
 }

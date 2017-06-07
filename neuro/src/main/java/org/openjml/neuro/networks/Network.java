@@ -28,12 +28,15 @@ public abstract class Network implements Serializable {
         oos.close();
     }
 
-    public static Network load(String fileName) throws IOException, ClassNotFoundException {
-        FileInputStream fis = new FileInputStream(fileName);
-        ObjectInputStream ois = new ObjectInputStream(fis);
+    public static Network load(String fileName) {
+        try (FileInputStream fis = new FileInputStream(fileName);
+             ObjectInputStream ois = new ObjectInputStream(fis)) {
 
-        Network network = (Network) ois.readObject();
-        return network;
+            Network network = (Network) ois.readObject();
+            return network;
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException("Cant deserialize network file.");
+        }
     }
 
     public abstract float[] compute(float[] input);

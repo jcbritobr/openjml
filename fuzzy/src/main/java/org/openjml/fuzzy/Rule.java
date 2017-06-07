@@ -1,7 +1,6 @@
 package org.openjml.fuzzy;
 
 import org.openjml.fuzzy.operators.*;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,20 +40,19 @@ public class Rule {
     }
 
     public String getRpnExpression() {
-        String result = "";
+        StringBuilder stringBuilder = new StringBuilder();
         for (Object o : rpnTokenList) {
             if (o instanceof Clause) {
                 Clause c = (Clause) o;
-                result += c.toString();
+                stringBuilder.append(c.toString());
             } else {
-                result += o.toString();
+                stringBuilder.append(o.toString());
             }
-
-            result += ", ";
+            stringBuilder.append(", ");
         }
 
-        result += '#';
-        result = result.replace(", #", "");
+        stringBuilder.append('#');
+        String result = stringBuilder.toString().replace(", #", "");
 
         return result;
     }
@@ -88,8 +86,6 @@ public class Rule {
         if (!upRule.contains("THEN")) {
             throw new RuntimeException("Missing the consequent (THEN) statement");
         }
-
-        //TODO: continue the rule implementation here
 
         String spacedRule = rule.replace("(", " ( ")
                 .replace(")", " ) ");
@@ -184,7 +180,7 @@ public class Rule {
 
         }
 
-        while  (s.size() > 0) {
+        while (s.size() > 0) {
             rpnTokenList.add(s.pop());
         }
     }
@@ -228,7 +224,7 @@ public class Rule {
                             s.push(notUnaryOperator.evaluate(y));
                             break;
                         default:
-                            throw new NotImplementedException();
+                            throw new RuntimeException("Operator not implemented yet.");
                     }
                 }
             }
