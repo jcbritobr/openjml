@@ -21,8 +21,8 @@ public class ActivationLayer extends Layer {
     }
 
     public void setActivationFuncion(ActivationFunction function) {
-        for (int i = 0; i < neurons.length; i++) {
-            ((ActivationNeuron) neurons[i]).setFunction(function);
+        for (Neuron neuron : neurons) {
+            ((ActivationNeuron) neuron).setFunction(function);
         }
     }
 

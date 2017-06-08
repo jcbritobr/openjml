@@ -5,7 +5,7 @@ package org.openjml.samples;
  */
 public class Histogram {
     public static void main(String[] args) {
-        org.openjml.core.Histogram histogram = new org.openjml.core.Histogram(new int[]{1, 3, 6, 8, 11, 34, 55, 0, 1});
-        System.out.printf("Mean: %f Deviation: %f", histogram.getMean(), histogram.getStdDev());
+        org.openjml.core.Histogram histogram = new org.openjml.core.Histogram(1, 1, 2, 3, 6, 8, 11, 12, 7, 3);
+        System.out.printf("Mean: %f Deviation: %f", histogram.getMean(), histogram.getStdDeviation());
     }
 }

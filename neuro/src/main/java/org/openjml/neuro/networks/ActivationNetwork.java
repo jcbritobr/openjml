@@ -20,8 +20,8 @@ public class ActivationNetwork extends Network {
     }
 
     public void setActivationFunction(ActivationFunction function) {
-        for (int i = 0; i < layers.length; i++) {
-            ((ActivationLayer) layers[i]).setActivationFuncion(function);
+        for (Layer layer : layers) {
+            ((ActivationLayer) layer).setActivationFuncion(function);
         }
     }
 

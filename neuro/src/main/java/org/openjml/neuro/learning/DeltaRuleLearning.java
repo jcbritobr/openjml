@@ -41,7 +41,6 @@ public class DeltaRuleLearning implements SupervisedLearning {
             }
 
             float th = neuron.getThreshold() + learningRate * e * functionDerivative;
-            ;
 
             neuron.setThreshold(th);
 

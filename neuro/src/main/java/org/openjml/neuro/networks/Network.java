@@ -34,8 +34,7 @@ public abstract class Network implements Serializable {
         try (FileInputStream fis = new FileInputStream(fileName);
              ObjectInputStream ois = new ObjectInputStream(fis)) {
 
-            Network network = (Network) ois.readObject();
-            return network;
+            return (Network) ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException("Cant deserialize network file.");
         }

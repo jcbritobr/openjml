@@ -4,7 +4,6 @@ import org.openjml.neuro.functions.ActivationFunction;
 import org.openjml.neuro.layers.Layer;
 import org.openjml.neuro.networks.ActivationNetwork;
 import org.openjml.neuro.neurons.ActivationNeuron;
-import org.openjml.neuro.neurons.Neuron;
 
 /**
  * BackPropagationLearning
@@ -57,7 +56,6 @@ public class BackPropagationLearning implements SupervisedLearning {
     }
 
     private void calcUpdate(float[] input) {
-        Neuron neuron;
         Layer layer, prevLayer;
         float[][] weightUpdateLayer;
         float[] thresholdUpdateLayer;
@@ -74,7 +72,6 @@ public class BackPropagationLearning implements SupervisedLearning {
         float cachedError;
 
         for (int i = 0; i < layer.getNeurons().length; i++) {
-            neuron = layer.getNeurons()[i];
             cachedError = errors[i] * normCachedMomentum;
             weightUpdateNeuron = weightUpdateLayer[i];
 
@@ -93,7 +90,6 @@ public class BackPropagationLearning implements SupervisedLearning {
             thresholdUpdateLayer = thresholdUpdates[k];
 
             for (int i = 0; i < layer.getNeurons().length; i++) {
-                neuron = layer.getNeurons()[i];
                 cachedError = errors[i] * normCachedMomentum;
                 weightUpdateNeuron = weightUpdateLayer[i];
                 for (int j = 0; j < weightUpdateNeuron.length; j++) {
@@ -106,21 +102,21 @@ public class BackPropagationLearning implements SupervisedLearning {
         }
     }
 
-    private void updateNerwork() {
+    private void updateNetwork() {
         ActivationNeuron neuron;
         Layer layer;
-        float[][] weightUpdatelayer;
+        float[][] weightUpdateLayer;
         float[] thresholdUpdateLayer;
         float[] weightUpdateNeuron;
 
         for (int i = 0; i < network.getLayers().length; i++) {
             layer = network.getLayers()[i];
-            weightUpdatelayer = weightUpdates[i];
+            weightUpdateLayer = weightUpdates[i];
             thresholdUpdateLayer = thresholdUpdates[i];
 
             for (int j = 0; j < layer.getNeurons().length; j++) {
                 neuron = (ActivationNeuron) layer.getNeurons()[j];
-                weightUpdateNeuron = weightUpdatelayer[j];
+                weightUpdateNeuron = weightUpdateLayer[j];
 
                 for (int k = 0; k < neuron.getWeights().length; k++) {
                     neuron.getWeights()[k] += weightUpdateNeuron[k];
@@ -156,7 +152,7 @@ public class BackPropagationLearning implements SupervisedLearning {
         network.compute(input);
         float error = calcError(output);
         calcUpdate(input);
-        updateNerwork();
+        updateNetwork();
 
         return error;
     }

@@ -15,7 +15,7 @@ public class Histogram implements Serializable {
     private int max;
     private long totalCount;
 
-    public Histogram(int[] values) {
+    public Histogram(int ... values) {
         this.values = values;
         update();
     }
@@ -25,14 +25,14 @@ public class Histogram implements Serializable {
     }
 
     public int[] getValues() {
-        return values;
+        return values.clone();
     }
 
     public float getMean() {
         return mean;
     }
 
-    public float getStdDev() {
+    public float getStdDeviation() {
         return stdDev;
     }
 

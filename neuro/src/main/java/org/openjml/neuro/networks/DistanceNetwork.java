@@ -33,8 +33,8 @@ public class DistanceNetwork extends Network {
     @Override
     public float[] compute(float[] input) {
         float[] output = input;
-        for (int i = 0; i < layers.length; i++) {
-            output = layers[i].compute(output);
+        for (Layer layer : layers) {
+            output = layer.compute(output);
         }
 
         this.output = output;
